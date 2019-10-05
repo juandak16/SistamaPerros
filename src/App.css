@@ -1,0 +1,117 @@
+.fondo{
+  background-image: url(./images/fondo.jpg) !important;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 700px;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+.overlay {
+  position: fixed;
+  width: 100%;
+  min-height: 110vh;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 0%, rgba(82, 82, 82, 0.24) 71%, rgba(171,171,171,0.6) 100%);
+}
+.container-login{
+  border-radius: 10px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  grid-template-rows: 0.5fr 0.4fr 0.4fr 0.6fr;
+  display: grid;
+  width: 340px;
+  height: 280px;
+  top: 22%;
+  padding-left: 0px;
+  left: 36%;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+.input-login{
+  width: 253px;
+  height: 36px;
+  margin: 0 auto;
+}
+
+.container-login > h1{
+  font-size: 25px;
+  margin-bottom: 0;
+}
+.container-login > .button-login{
+  width: 248px;
+  height: 38px;
+  margin-left: 3px !important;
+  margin-top: 24px !important;
+  margin: 12px auto 0 auto !important;
+  background-color: #24c724 !important;
+  color: white !important;
+  
+}
+
+
+.Navbar{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 50px;
+}
+.rol-activo{
+  text-transform: uppercase;
+  margin: 8px 0 0px 24px;
+  font-size: 17px;
+  font-weight: bold;
+  margin: auto 0;
+  margin-left: 10px; 
+}
+.button-navbar{
+  text-transform: uppercase !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: 1px solid white !important;
+  background-color: #bb1717 !important;
+  color: white !important;
+  cursor: pointer;
+  transition: all .7s ease;
+  height: 100%;
+}
+.button-navbar:hover{
+  background-color: white !important;
+  color:black !important;
+}
+
+.Menu{
+  background-color: white !important;
+  width: 88% !important;
+  margin: 40px auto 0 auto !important;
+  border-radius: 5px !important;
+  height: auto !important;
+}
+.container-factura{
+  background-color: white !important;
+  width: 77% !important;
+  margin: 40px auto 0 auto !important;
+  border-radius: 5px !important;
+  height: 700px !important;
+  padding: 15px 45px !important;
+}
+.container-menu{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 210px;
+}
+.image-menu{
+  width: 100%;
+  height: 100%;
+}
+.sidebar-factura{
+  width: 370px !important;
+}
+.button-generar{
+  margin: 0 auto !important;
+}
