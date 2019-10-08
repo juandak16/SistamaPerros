@@ -17,6 +17,12 @@ import {
     console.log(detalles);
   }
 
+  const deleteDetallePedido = (index, detalles, setDetalles) => {
+    let det = [...detalles];
+    det.splice(index,1);
+    setDetalles(det);
+  }
+
   const VerticalSidebar = ({ animation, direction, visible, setVisible, detalles, setDetalles }) => (
     
     <Sidebar
@@ -47,7 +53,7 @@ import {
                   o.value = ingrediente.name;
                   return o;
               })} />
-              <Icon name='trash alternate outline' className='icon-detalle'/>
+              <Icon name='trash alternate outline' className='icon-detalle' onClick={() => deleteDetallePedido(i,detalles, setDetalles)  } />
             </div>
           )
         })}
