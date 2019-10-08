@@ -1,21 +1,37 @@
 import React from 'react';
-import perros from '../data/perros';
-import PerroList from './PerroList';
 
 
 const Menu = (props) => {
+
+  const {
+    handleClick,
+    perros
+  } = props;
+
   return ( 
     <div className="Menu">
       <h1>Perros</h1>
       <div className='container-menu'>
         {perros.map((perro, i) => {
-          return <div className='image-menu' key={i} style={{backgroundImage: `url(${perro.foto})`}}/>
+          return (
+            <div className='container-platillo' key={i} onClick={() => handleClick(perro)}>
+              <div className='image-menu' style={{backgroundImage: `url(${perro.foto})`}}/>
+              <div className="overlay-menu"/>
+              <div className="label-platillo">{perro.nombre}</div>
+            </div>
+          )
         })}
       </div>
       <h1>Bebidas</h1>
       <div className='container-menu'>
         {perros.map((perro, i) => {
-          return <img className='image-menu' key={i} src={perro.foto}/>
+          return (
+            <div className='container-platillo' key={i} onClick={() => handleClick(perro)}>
+              <div className='image-menu' style={{backgroundImage: `url(${perro.foto})`}}/>
+              <div className="overlay-menu"/>
+              <div className="label-platillo">{perro.nombre}</div>
+            </div>
+          )
         })}
       </div>
     </div>

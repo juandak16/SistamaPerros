@@ -3,9 +3,9 @@ import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Wrapper from './components/Wrapper';
-import Menu from './components/Menu';
 import Reportes from './components/Reportes';
 import Facturacion from './components/Facturacion';
+import Pedidos from './components/Pedidos';
 import permisos from './data/permisos';
 import usuarios from './data/usuarios';
 
@@ -25,12 +25,14 @@ function App() {
     }else
       console.log('clave o usuario incorrecto');
   }
+
   //obligo mostrar la vista del rol activo
   useEffect(() => {
-    console.log(rolActivo);
+    //console.log(rolActivo);
     if(rolActivo){
       setVistas(permisos[rolActivo])
       //la vista 0 pedidos, 1 reportes
+      if(vistaActiva=='login')
       setVistaActiva(permisos[rolActivo][0]);
     }
   });
@@ -52,10 +54,11 @@ function App() {
           <Login
             handleLogin={login}
           />
-        : vistaActiva == 'pedidos' ?
+        : vistaActiva == 'facturacion' ?
           <Facturacion/>
-        :
-          <Reportes/>
+        : vistaActiva == 'pedidos' ?
+          <Pedidos/>
+        :  <Reportes/>
         }
       </Wrapper>
     </div>

@@ -1,4 +1,4 @@
 export default {
-    'cajero': ['pedidos'],
-    'administrador': ['pedidos', 'reportes']
+    'cajero': ['facturacion','pedidos'],
+    'administrador': ['facturacion','pedidos', 'reportes']
 }

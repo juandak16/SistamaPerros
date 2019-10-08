@@ -93,8 +93,8 @@
 }
 .container-factura{
   background-color: white !important;
-  width: 77% !important;
-  margin: 40px auto 0 auto !important;
+  width: 78% !important;
+  margin: 15px auto 0 auto !important;
   border-radius: 5px !important;
   height: 700px !important;
   padding: 15px 45px !important;
@@ -108,10 +108,58 @@
 .image-menu{
   width: 100%;
   height: 100%;
+  /* position: sticky; */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  line-height: 90px;
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+  text-shadow: 0px 0px 4px #000;
+}
+.overlay-menu{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.14);
+  left: 0;
+}
+.label-platillo{
+  z-index: 1;
+  top: 0;
+  position: absolute;
+  text-align: center;
+  line-height: 90px;
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+  text-shadow: 0px 0px 4px #000;
+  margin: 0 auto;
+  width: 100%;
+}
+.container-platillo{
+  margin: 2px;
+  position: relative;
 }
 .sidebar-factura{
   width: 370px !important;
 }
 .button-generar{
   margin: 0 auto !important;
+}
+.detalle-pedido{
+  color:white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 10px;
+}
+.container-detalles{
+  color: white;
+  margin: 20px 10px 0 10px;
+}
+.name-detalle{
+
 }
