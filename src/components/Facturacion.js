@@ -16,13 +16,26 @@ import {
     setDetalles([]);
     console.log(detalles);
   }
+  const modificarIngredientes = (index, element, detalles, setDetalles) => {
+    console.log(element[element.length-1],index,detalles[index].ingredientes);
+    let iElement = detalles[index].ingredientes.filter((ingrediente,i) =>{
+      
+      return ingrediente.name !== element[element.length-1] 
+    })
+    console.log(detalles[index].ingredientes);
+    let det = [...detalles];
+    det[index].ingredientes = iElement;
+    setDetalles(det);
+    detalles[index].ingredientes.map((ingrediente,i)=>{
+      console.log(ingrediente.name)
+    })
 
+  }
   const deleteDetallePedido = (index, detalles, setDetalles) => {
     let det = [...detalles];
     det.splice(index,1);
     setDetalles(det);
   }
-
   const VerticalSidebar = ({ animation, direction, visible, setVisible, detalles, setDetalles }) => (
     
     <Sidebar
@@ -45,14 +58,22 @@ import {
               <div className='name-detalle' > 
                 { detallePedido.nombre }
               </div>
-              <Dropdown placeholder='Ingredientes' fluid multiple selection options={
+
+
+              {<Dropdown key={i} id='Dropdown' placeholder='Ingredientes' fluid multiple selection 
+                options={
                 detallePedido.ingredientes.map((ingrediente,j)=>{
                   var o = Object.assign({},ingrediente);
                   o.key = j;
                   o.text = ingrediente.name;
                   o.value = ingrediente.name;
                   return o;
-              })} />
+                })}
+                onChange={(event,data) => modificarIngredientes(i,data.value, detalles, setDetalles)}
+                />}
+
+
+
               <Icon name='trash alternate outline' className='icon-detalle' onClick={() => deleteDetallePedido(i,detalles, setDetalles)  } />
             </div>
           )

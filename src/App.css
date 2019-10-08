@@ -171,3 +171,7 @@
   position: fixed !important;
   height: 100vh !important;
 }
+#Select-modal{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}

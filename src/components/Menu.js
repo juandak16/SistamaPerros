@@ -1,4 +1,8 @@
 import React from 'react';
+import AddMenu from './AddMenu';
+import {
+  Button
+} from 'semantic-ui-react'
 
 
 const Menu = (props) => {
@@ -10,6 +14,7 @@ const Menu = (props) => {
 
   return ( 
     <div className="Menu">
+      <AddMenu/>
       <h1>Perros</h1>
       <div className='container-menu'>
         {perros.map((perro, i) => {
