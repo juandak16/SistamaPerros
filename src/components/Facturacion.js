@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types'
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import Menus from './Menu';
 import perros from '../data/perros';
-import { Dropdown } from 'semantic-ui-react'
 import {
   Button,
-  Checkbox,
-  Grid,
-  Header,
+  Dropdown,
   Icon,
-  Image,
   Menu,
   Segment,
   Sidebar,
 } from 'semantic-ui-react'
 
-  const VerticalSidebar = ({ animation, direction, visible, detalles }) => (
+  const addPedido = (setVisible,setDetalles,detalles) => {
+    setVisible(false);
+    setDetalles([]);
+    console.log(detalles);
+  }
+
+  const VerticalSidebar = ({ animation, direction, visible, setVisible, detalles, setDetalles }) => (
     
     <Sidebar
       as={Menu}
@@ -43,13 +45,15 @@ import {
                   o.key = j;
                   o.text = ingrediente.name;
                   o.value = ingrediente.name;
-                  console.log(o);
                   return o;
               })} />
-              <div>eliminar</div>
+              <Icon name='trash alternate outline' className='icon-detalle'/>
             </div>
           )
         })}
+          <Button onClick={() => addPedido(setVisible,setDetalles,detalles)}>
+            Generar
+          </Button>
         </div>
       )
       : null
@@ -72,7 +76,7 @@ import {
     let [detalles,setDetalles] = useState([]);
     const [recharge,setRecharge] = useState(false);
 
-    const addPedido = (perro) => {
+    const addDetallePedido = (perro) => {
       detalles.push(perro);
       setVisible(true);
       setRecharge(true); 
@@ -86,7 +90,9 @@ import {
         animation={animation}
         direction={direction}
         visible={visible}
+        setVisible={setVisible}
         detalles={detalles}
+        setDetalles={setDetalles}
         />
       )
     }
@@ -106,11 +112,13 @@ import {
               animation={animation}
               direction={direction}
               visible={visible}
+              setVisible={setVisible}
               detalles={detalles}
+              setDetalles={setDetalles}
             />
             <Sidebar.Pusher>
               <Segment className="container-factura">
-                <Menus handleClick={addPedido} perros={perros}/>
+                <Menus handleClick={addDetallePedido} perros={perros}/>
                 <Button className='button-generar' onClick={() => setVisible(!visible)}
                 >Push</Button>
               </Segment>

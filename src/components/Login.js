@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button,Input,Container } from 'semantic-ui-react'; 
+import { Button,Input } from 'semantic-ui-react'; 
 
 const Login = (props) => {
 
@@ -9,7 +9,7 @@ const Login = (props) => {
   const [clave,setClave] = useState('');
 
   const inicioSesion = () => {
-    if (usuario != ''  && clave != '' )
+    if (usuario !== ''  && clave !== '' )
       handleLogin(usuario, clave);
     else
       console.log('campos vacios')

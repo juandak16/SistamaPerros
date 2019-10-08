@@ -15,8 +15,8 @@ function App() {
   const [vistas,setVistas] = useState([]);
 
   const login = (username, password) => {
-    const usuario = usuarios.find(usuario => usuario.username == username);
-    if (usuario && usuario.password == password){ 
+    const usuario = usuarios.find(usuario => usuario.username === username);
+    if (usuario && usuario.password === password){ 
       console.log('logeado');
       console.log(permisos[usuario.role]);
       setRolActivo(usuario.role);
@@ -32,7 +32,7 @@ function App() {
     if(rolActivo){
       setVistas(permisos[rolActivo])
       //la vista 0 pedidos, 1 reportes
-      if(vistaActiva=='login')
+      if(vistaActiva === 'login')
       setVistaActiva(permisos[rolActivo][0]);
     }
   });
@@ -50,13 +50,13 @@ function App() {
       /> : null
       }
       <Wrapper>
-        {vistaActiva == 'login' ?
+        {vistaActiva === 'login' ?
           <Login
             handleLogin={login}
           />
-        : vistaActiva == 'facturacion' ?
+        : vistaActiva === 'facturacion' ?
           <Facturacion/>
-        : vistaActiva == 'pedidos' ?
+        : vistaActiva === 'pedidos' ?
           <Pedidos/>
         :  <Reportes/>
         }
