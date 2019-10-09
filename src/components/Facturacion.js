@@ -11,25 +11,20 @@ import {
   Sidebar,
 } from 'semantic-ui-react'
 
-  const addPedido = (setVisible,setDetalles,detalles) => {
+  const ingrEliminados = [] ;
+  const addPedido = (setVisible, setDetalles, detalles, ingrEliminados) => {
     setVisible(false);
+    detalles.map((detalle,i)=>{
+      var o = Object();
+      o._id = detalle.nombre;
+      o.ingredients_off = ingrEliminados[i];
+      console.log(o);
+    })
     setDetalles([]);
-    console.log(detalles);
+    //console.log(detalles);
   }
-  const modificarIngredientes = (index, element, detalles, setDetalles) => {
-    console.log(element[element.length-1],index,detalles[index].ingredientes);
-    let iElement = detalles[index].ingredientes.filter((ingrediente,i) =>{
-      
-      return ingrediente.name !== element[element.length-1] 
-    })
-    console.log(detalles[index].ingredientes);
-    let det = [...detalles];
-    det[index].ingredientes = iElement;
-    setDetalles(det);
-    detalles[index].ingredientes.map((ingrediente,i)=>{
-      console.log(ingrediente.name)
-    })
-
+  const modificarIngredientes = (index, element) => {
+    ingrEliminados[index] = element;
   }
   const deleteDetallePedido = (index, detalles, setDetalles) => {
     let det = [...detalles];
@@ -69,7 +64,7 @@ import {
                   o.value = ingrediente.name;
                   return o;
                 })}
-                onChange={(event,data) => modificarIngredientes(i,data.value, detalles, setDetalles)}
+                onChange={(event,data) => modificarIngredientes(i,data.value)}
                 />}
 
 
@@ -78,7 +73,7 @@ import {
             </div>
           )
         })}
-          <Button onClick={() => addPedido(setVisible,setDetalles,detalles)}>
+          <Button onClick={() => addPedido(setVisible,setDetalles,detalles,ingrEliminados)}>
             Generar
           </Button>
         </div>
