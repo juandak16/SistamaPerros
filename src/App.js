@@ -6,14 +6,58 @@ import Wrapper from './components/Wrapper';
 import Reportes from './components/Reportes';
 import Facturacion from './components/Facturacion';
 import Pedidos from './components/Pedidos';
-import permisos from './data/permisos';
+
+import DrinksApi from './api/DrinksApi';
+import PerrosApi from './api/PerrosApi';
+import IngredientsApi from './api/IngredientsApi';
+import SalchichasApi from './api/SalchichasApi';
+import BillsApi from './api/BillsApi';
+
+import API from './api/api';
+
+
+
+
+//import pedidosData from './data/pedidos';
 import usuarios from './data/usuarios';
+import permisos from './data/permisos';
+
+
 
 function App() {
   const [rolActivo,setRolActivo] = useState('administrador');
   const [vistaActiva,setVistaActiva] = useState('login');
   const [vistas,setVistas] = useState([]);
 
+  const [bebidas,setBebidas] = useState([]);
+  const [perros,setPerros] = useState([]);
+  const [salchichas,setSalchichas] = useState([]);
+  const [ingredientes,setIngredientes] = useState([]);
+  const [pedidos,setPedidos] = useState([]);
+
+
+  const [cargarData,setCargarData] = useState(true);
+  /*
+  if(!pedidos){
+    setPerros(pedidosData);
+    console.log(pedidos);
+  }*/
+
+  const api = new API('http://67.207.85.229');
+  /*
+  api.getSausage((res) => {
+    console.log('salchichas:', res);
+  })
+  api.getHotDogs((res) => {
+    console.log('perros:', res);
+  })
+  api.getDrinks((res) => {
+    console.log('bebidas:', res);
+  })
+  api.getIngredients((res) => {
+    console.log('ingredientes:', res);
+  })*/
+  
   const login = (username, password) => {
     const usuario = usuarios.find(usuario => usuario.username === username);
     if (usuario && usuario.password === password){ 
@@ -35,10 +79,21 @@ function App() {
       if(vistaActiva === 'login')
       setVistaActiva(permisos[rolActivo][0]);
     }
+
+    //carga de data  
+    //PerrosApi(perros, setPerros, cargarData, setCargarData);
+    //IngredientsApi(ingredientes, setIngredientes, cargarData, setCargarData);
+    //SalchichasApi(salchichas, setSalchichas, cargarData, setCargarData);
+    //BillsApi(pedidos, setPedidos, cargarData, setCargarData);
+    //DrinksApi(bebidas, setBebidas, cargarData, setCargarData);
   });
+
+
 
   return (
     <div className="App">
+      {//console.log(ingredientes)
+      }
       <div className="fondo"/>
       <div className="overlay"/>
       {vistaActiva !== 'login'? 
@@ -55,7 +110,7 @@ function App() {
             handleLogin={login}
           />
         : vistaActiva === 'facturacion' ?
-          <Facturacion/>
+          <Facturacion api={api} rolActivo={rolActivo} />
         : vistaActiva === 'pedidos' ?
           <Pedidos/>
         :  <Reportes/>

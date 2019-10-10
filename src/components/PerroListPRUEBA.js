@@ -41,3 +41,37 @@ export default class PerroList extends React.Component {
   }
 
 }
+
+
+/*
+import React from 'react';
+import axios from 'axios';
+
+export default class DrinksApi extends React.Component {
+    state = {
+      bebidas: []
+    };
+    componentDidMount() {
+      this.getBebidas();
+    }
+    getBebidas = async () => {
+      try {
+        let res = await axios.get("https://pokeapi.co/api/v2/pokemon/")
+        let data = res.data;
+        this.setState({ bebidas: data.results });
+      } catch(error) {
+        console.log("error", error);
+      }
+    };
+
+  render() {
+    return (
+      <div>
+        {this.state.bebidas.map((bebida,i) => {
+          return bebida.name
+        })}
+      </div>
+    )
+  }
+
+}*/

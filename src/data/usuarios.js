@@ -10,17 +10,3 @@ export default [
         role: 'administrador'
     }
 ];
-
-
-
-// [1,2,3,4,5,6]
-
-// vector[3]
-
-// {
-//     'casa': 5,
-//     'color': 'rojo',
-// }
-
-// objeto['casa']
-// // 5

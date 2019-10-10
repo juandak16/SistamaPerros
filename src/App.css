@@ -173,7 +173,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.add-perro{
+.add{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr; 
@@ -181,7 +181,8 @@
   margin: 0 auto;
 }
 .container-add{
-  height: 500px;
+  height: auto;
+  min-height: 500px;
 }
 .input-add{
   width: 90% !important;
@@ -196,7 +197,7 @@
   text-align: center;
   margin-bottom: 25px;
 }
-.add-perro div{
+.add div{
   margin-left: 10px;
 }
 .button-add{
@@ -207,4 +208,12 @@
   color: white !important;
   display: grid !important;
   grid-template-columns: 1fr;
+}
+.green{
+  background-color: #24c724 !important;
+  color: white !important;
+}
+.red{
+  background-color: #f34e4e !important;
+  color: white !important;
 }

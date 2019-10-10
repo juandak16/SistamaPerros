@@ -1,81 +1,117 @@
 import React, {useState,useEffect} from 'react';
 import { Button, Input, Dropdown, Modal } from 'semantic-ui-react';
-import perros from '../data/perros';
 import Navbar from './Navbar';
 
 
 
-const AddMenu = () => {
+const AddMenu = (props) => {
+  const {
+    api
+  } = props;
   const vistas = ['perro','bebida','salchicha','ingrediente']
   const [vistaActiva,setVistaActiva] = useState('perro')
-  const [ingredientes,setIngredientes] = useState(null);
-  const [salchicha,setSalchicha] = useState(null);
+
+  const [ingredientesAdd,setIngredientesAdd] = useState(null);
+  const [salchichaAdd,setSalchichaAdd] = useState(null);
   const [nombre,setNombre] = useState(null);
-  const [precio,setPrecio] = useState(null);
+  const [precioAdd,setPrecioAdd] = useState(null);
 
-
-  const crearPerro = () => {
+  //console.log(DrinksApi);
+  const crear = () => {
     var o = Object();
     o.name = nombre;
-    o.price = precio;
-    o.sausage = salchicha;
-    o.ingredients = ingredientes;
-    console.log(o);
+
+    if(precioAdd)
+    o.price = precioAdd
+
+    if(salchichaAdd)
+    o.sausage = salchichaAdd
+
+
+    if(ingredientesAdd)
+    o.ingredients = ingredientesAdd
+
+
+    console.log(o,vistaActiva);
+  }
+
+  const [salchichas,setSalchichas] = useState([]);
+  const [ingredientes,setIngredientes] = useState([]);
+
+  api.getSausage((res) => {
+    setSalchichas(res);
+  })
+  api.getIngredients((res) => {
+    setIngredientes(res);
+  })
+  const limpiar = () =>{
+
   }
   
   return (
-    <Modal trigger={<Button> Add </Button>} centered={false}>
+    <Modal trigger={<Button className='green' > AGREGAR </Button>} centered={false}>
       <Modal.Header>
         <Navbar
           vistas={vistas}
           vistaActiva={'perro'}
           rolActivo={'Agregar'}
           setVistaActiva={setVistaActiva}
+          onChange={limpiar()}
         />
       </Modal.Header>
 
       <Modal.Content className='container-add'>
-        {vistaActiva === 'perro'? 
-          <div>
-            <h2 className='title'>Creando Perro</h2>
+        <h2 className='title'>Creando {vistaActiva.charAt(0).toUpperCase() + vistaActiva.substr(1)}</h2>
+        {true ? 
 
-            <div className='add-perro'>
+          <div>
+
+
+            <div className='add'>
               <div>
                 <h2 className='subtitle'>Nombre:</h2>
-                <Input focus placeholder='Nombre' className='input-add' onChange={ (event,data) => setNombre(data.value) } />
+                <Input focus placeholder='Nombre' type='text' className='input-add' onChange={ (event,data) => setNombre(data.value) } />
               </div>
+
+              {vistaActiva === 'perro' || vistaActiva === 'bebida'?
               <div>
                 <h2 className='subtitle'>Precio:</h2>
-                <Input focus placeholder='Precio' className='input-add' onChange={ (event,data) => setPrecio(data.value) } />
-              </div>
+                <Input focus placeholder='Precio' type='number' className='input-add' onChange={ (event,data) => setPrecioAdd(data.value) } />
+              </div> : null}
+
+              {vistaActiva === 'perro' ?
               <div>
                 <h2 className='subtitle'>Salchicha:</h2>
                 <Dropdown className="input-add" id='Dropdown-add' placeholder='Salchichas' fluid selection options={
-                  perros.map((perro,j)=>{
+                  salchichas.map((salchicha,j)=>{
                     var o = Object();
                     o.key = j;
-                    o.text = perro.nombre;
-                    o.value = perro.nombre;
+                    o.text = salchicha.name;
+                    o.value = salchicha.name;
                     return o;
                   })}
-                  onChange={(event,data) => setSalchicha(data.value)}
+                  onChange={(event,data) => setSalchichaAdd(data.value)}
                   />
-              </div>
+              </div> : null}
+
+              {vistaActiva === 'perro' ?
               <div>
                 <h2 className='subtitle'>Ingredientes:</h2>
                 <Dropdown className="input-add" id='Dropdown-add' placeholder='Ingredientes' fluid multiple selection options={
-                  perros.map((perro,j)=>{
+                  ingredientes.map((ingrediente,j)=>{
                     var o = Object();
                     o.key = j;
-                    o.text = perro.nombre;
-                    o.value = perro.nombre;
+                    o.text = ingrediente.name;
+                    o.value = ingrediente.name;
                     return o;
                   })}
-                  onChange={(event,data) => setIngredientes(data.value)}
+                  onChange={(event,data) => setIngredientesAdd(data.value)}
                 />
-              </div>
+              </div> : null}
+
+
             </div>
-            <Button className='button-add' onClick={ crearPerro } > Crear </Button>
+            <Button className='button-add' onClick={ crear } > Crear </Button>
           </div>
         : vistaActiva === 'bebida'? 'bebida' : vistaActiva === 'salchicha' ? 'salchicha' : 'ingrediente'} 
       </Modal.Content>
