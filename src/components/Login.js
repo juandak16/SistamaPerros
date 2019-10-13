@@ -19,7 +19,7 @@ const Login = (props) => {
       <div className='container-login'>
         <h1>LOGIN</h1>
         <Input className='input-login' type="text" value={usuario} onChange={(e) => setUsuario(e.target.value)} placeholder='usuario'/>
-        <Input className='input-login' type="text" value={clave} onChange={(e) => setClave(e.target.value)} placeholder='contrasena'/>
+        <Input className='input-login' type="password" value={clave} onChange={(e) => setClave(e.target.value)} placeholder='contrasena'/>
         <Button className='button-login' onClick={inicioSesion}>Enter</Button>
       </div>
     </div>

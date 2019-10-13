@@ -1,4 +1,4 @@
-.fondo{
+.fondo {
   background-image: url(./images/fondo.jpg) !important;
   background-size: cover;
   background-position: center;
@@ -14,9 +14,15 @@
   min-height: 110vh;
   height: 100vh;
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 0%, rgba(82, 82, 82, 0.24) 71%, rgba(171,171,171,0.6) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(82, 82, 82, 0.24) 71%,
+    rgba(171, 171, 171, 0.6) 100%
+  );
 }
-.container-login{
+.container-login {
   border-radius: 10px;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
@@ -31,42 +37,40 @@
   padding: 20px;
   color: white;
 }
-.input-login{
+.input-login {
   width: 253px;
   height: 36px;
   margin: 0 auto;
 }
 
-.container-login > h1{
+.container-login > h1 {
   font-size: 25px;
   margin-bottom: 0;
 }
-.container-login > .button-login{
+.container-login > .button-login {
   width: 248px;
   height: 38px;
   margin: 12px auto 0 auto !important;
   background-color: #24c724 !important;
   color: white !important;
-  
 }
 
-
-.Navbar{
+.Navbar {
   background-color: white;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   height: 50px;
 }
-.rol-activo{
+.rol-activo {
   text-transform: uppercase;
   margin: 8px 0 0px 24px;
   font-size: 17px;
   font-weight: bold;
   margin: auto 0;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
-.button-navbar{
+.button-navbar {
   text-transform: uppercase !important;
   margin: 0 !important;
   border-radius: 0 !important;
@@ -74,36 +78,37 @@
   background-color: #bb1717 !important;
   color: white !important;
   cursor: pointer;
-  transition: all .7s ease;
+  transition: all 0.7s ease;
   height: 100%;
 }
-.button-navbar:hover{
+.button-navbar:hover {
   background-color: white !important;
-  color:black !important;
+  color: black !important;
 }
 
-.Menu{
+.Menu {
   background-color: white !important;
   width: 88% !important;
-  margin: 40px auto 0 auto !important;
+  margin: 15px auto 25px auto !important;
   border-radius: 5px !important;
   height: auto !important;
 }
-.container-factura{
+.big-container {
   background-color: white !important;
   width: 78% !important;
   margin: 15px auto 0 auto !important;
   border-radius: 5px !important;
-  height: 700px !important;
+  height: auto !important;
+  min-height: 85vh;
   padding: 15px 45px !important;
 }
-.container-menu{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  height: 210px;
+.container-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
 }
-.image-menu{
+.image-menu {
   width: 100%;
   height: 100%;
   /* position: sticky; */
@@ -116,7 +121,7 @@
   color: white;
   text-shadow: 0px 0px 4px #000;
 }
-.overlay-menu{
+.overlay-menu {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -125,7 +130,7 @@
   background: rgba(0, 0, 0, 0.14);
   left: 0;
 }
-.label-platillo{
+.label-platillo {
   z-index: 1;
   top: 0;
   position: absolute;
@@ -138,82 +143,158 @@
   margin: 0 auto;
   width: 100%;
 }
-.container-platillo{
+.container-platillo {
   margin: 2px;
   position: relative;
+  width: auto;
+  min-width: 163px;
+  height: 100px;
 }
-.sidebar-factura{
+.sidebar-factura {
   width: 370px !important;
 }
-.button-generar{
+.button-generar {
   margin: 0 auto !important;
 }
-.detalle-pedido{
-  color:white;
+.detalle-pedido {
+  color: white;
   display: grid;
   grid-template-columns: 1fr 1.3fr 1fr;
   margin-bottom: 10px;
 }
-.container-detalles{
+.container-detalles {
   color: white;
   margin: 20px 10px 0 10px;
 }
-.name-detalle{
+.name-detalle {
   margin: auto 0 !important;
 }
-.icon-detalle{
+.icon-detalle {
   margin: auto !important;
   margin-left: 40px !important;
 }
-.sidebar-factura{
+.sidebar-factura {
   position: fixed !important;
   height: 100vh !important;
 }
-#Select-modal{
+#Select-modal {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.add{
+.add {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr;
   width: 80%;
   margin: 0 auto;
 }
-.container-add{
+.container-add {
   height: auto;
   min-height: 500px;
 }
-.input-add{
+.input-add {
   width: 90% !important;
   margin-bottom: 40px !important;
 }
-.subtitle{
+.subtitle {
   font-size: 16px;
   margin-bottom: 8px;
 }
-.title{
+.title {
   font-size: 26px;
   text-align: center;
   margin-bottom: 25px;
 }
-.add div{
+.add div {
   margin-left: 10px;
 }
-.button-add{
+.button-add {
   width: 248px;
   height: 38px;
   margin: 12px auto 0 auto !important;
   background-color: #24c724 !important;
   color: white !important;
-  display: grid !important;
-  grid-template-columns: 1fr;
 }
-.green{
+.green {
   background-color: #24c724 !important;
   color: white !important;
 }
-.red{
+.red {
   background-color: #f34e4e !important;
   color: white !important;
+}
+.subtitle-menu {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.title-menu {
+  font-size: 30px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.container-facturacion {
+}
+.title-pedido {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.container-pedido {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+}
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+.margin-top {
+  margin-top: 10px;
+}
+.modify {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 80%;
+  margin: 0 auto;
+}
+#Dropdown-modify {
+  width: 80%;
+  margin: 0 auto 15px auto;
+}
+.buttons-modify {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-width: 510px;
+  width: 510px;
+  margin: 0 auto;
+}
+.button-eliminar {
+  width: 248px;
+  height: 38px;
+  margin: 12px auto 0 auto !important;
+}
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  text-align: center;
+}
+.four-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
+  text-align: center;
+}
+.column{
+  margin: 0 auto;
+  text-align: center;
+  display: grid !important;
+  grid-template-columns: 1fr;
+  width: 100% !important;
+}
+.most_droppedI{
+  width: 71%;
+}
+.title-report{
+  margin-top: 13px !important;
 }
